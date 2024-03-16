@@ -54,4 +54,3 @@ jobs:
         with:
           service-id: ${{ secrets.SERVICE_ID }}
           api-key: ${{ secrets.TOKEN }}
-          wait-for-success: true
