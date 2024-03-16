@@ -19,10 +19,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: Check for security issues
-        run: npm audit
       - name: Fix security issues with force
         run: npm audit --force
+      - name: Check for security issues
+        run: npm audit
 
   test:
     needs: security
