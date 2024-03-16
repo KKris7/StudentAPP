@@ -52,5 +52,5 @@ jobs:
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
-          service-id: RENDER_DEPLOY
-          api-key: TOKEN
+          service-id: ${{ secrets.GITHUB.RENDER_DEPLOY }}
+          api-key: ${{ secrets.GITHUB_TOKEN }}
