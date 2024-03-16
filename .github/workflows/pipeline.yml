@@ -10,37 +10,37 @@ jobs:
     runs-on: ubuntu-latest  
     strategy:
       matrix:
-        node-version: [ 16.x, 18.x, 20.x] 
+        node-version: [ '16.x', '18.x', '20.x' ]
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Check for security issues
-      run: npm audit
-    - name: Fix security issues with force
-      run: npm audit --force
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Check for security issues
+        run: npm audit
+      - name: Fix security issues with force
+        run: npm audit --force
 
   test:
     needs: security
     runs-on: ubuntu-latest  
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x] 
+        node-version: [ '16.x', '18.x', '20.x' ]
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Install dependancies
-      run: npm install
-    - name: Start the App
-      run: npm start &
-    - name: Run the tests
-      run: npm test
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+      - name: Start the App
+        run: npm start &
+      - name: Run the tests
+        run: npm test
