@@ -18,6 +18,6 @@ jobs:
     - name: Instal dependancies
       run: npm install
     - name: Start the App
-      run: npm start
+      run: npm start &
     - name: Run the tests
       run: npm test
