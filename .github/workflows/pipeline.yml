@@ -1,0 +1,23 @@
+name: Build and Test StudentAPP CI
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build-test:
+    runs-on: ubuntu-latest   
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+    - name: Use Node.js 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache: 'npm'
+    - name: Instal dependancies
+    - run: npm install
+    - name: Start the App
+    - run: npm start
+    - name: Run the tests
+    - run: npm test
